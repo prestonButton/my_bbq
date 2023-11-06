@@ -5,12 +5,29 @@ interface CheckboxProps {
   label: string;
 }
 
+interface RadioButtonProps {
+  label: string;
+  name: string;
+}
+
 const Checkbox: React.FC<CheckboxProps> = ({ label }) => {
   return (
     <div className="form-control">
       <label className="label cursor-pointer flex items-left">
         <input type="checkbox" className="checkbox checkbox-sm" />
         <span className="label-text text-white self-left">{label}</span>
+      </label>
+    </div>
+  );
+};
+
+const RadioButton: React.FC<RadioButtonProps> = ({ label, name }) => {
+  return (
+    <div className="form-control">
+      <label className="custom-checkbox flex items-left cursor-pointer mx-3 my-2">
+        <input type="radio" className="hidden" name={name} />
+        <span className="checkmark"></span>
+        <span className="label-text text-white">{label}</span>
       </label>
     </div>
   );
@@ -23,9 +40,9 @@ const Order = () => {
         <h1>Order Here</h1>
         <div>
           <h2>Main Dish</h2>
-          <Checkbox label='Beef Burger' />         
-          <Checkbox label="Veggie Burger" />
-          <Checkbox label='Turkey Burger' />         
+          <RadioButton label='Beef Burger' name="mainDish" />         
+          <RadioButton label="Veggie Burger" name="mainDish" />
+          <RadioButton label='Turkey Burger' name="mainDish" />         
         </div>
         <div>
           <h2>Customize</h2>
@@ -38,13 +55,18 @@ const Order = () => {
           <Checkbox label='Pickles' />
         </div>
         <div>
-          <h2>Sides</h2>
+          <h2>Sauces</h2>
           <Checkbox label='Ketchup' />
           <Checkbox label='BBQ' />
           <Checkbox label='Mayonaise' />
           <Checkbox label='Relish' />
           <Checkbox label='Mustard' />
           <Checkbox label='Honey Mustard' />
+        </div>
+        <div>
+          <h2>Main Dish</h2>
+          <RadioButton label='Coleslaw' name="side" />         
+          <RadioButton label="Fries" name="side" />
         </div>
       </div>
     </div>

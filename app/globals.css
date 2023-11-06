@@ -9,3 +9,51 @@
 .label {
   @apply flex select-none items-start justify-start p-2 
 }
+
+/* Hide the default radio button */
+.custom-checkbox input[type="radio"] {
+  display: none;
+}
+
+/* Create a new checkbox style */
+.custom-checkbox .checkmark {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background-color: #334155;
+  border-radius: 2px;
+}
+
+/* Style for when the radio is selected */
+.custom-checkbox input[type="radio"]:checked ~ .checkmark {
+  background-color: #b0b0b0;
+}
+
+
+
+
+
+/* Create a checkmark indicator (hidden when not checked) */
+.custom-checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.custom-checkbox input[type="radio"]:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark */
+.custom-checkbox .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid #334155;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
