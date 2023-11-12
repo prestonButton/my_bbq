@@ -1,4 +1,3 @@
-
 datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
@@ -24,6 +23,7 @@ model Order {
   pickles       Boolean
   coleslaw      Boolean
   fries         Boolean
+  no_side       Boolean
   ketchup       Boolean
   bbq           Boolean
   mayo          Boolean
